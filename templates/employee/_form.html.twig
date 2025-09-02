@@ -1,8 +1,12 @@
 
-<div class="container bg-light">
+<div class="container bg-light row">
+
     {{ form_start(form) }}
         {{ form_widget(form) }}
+    <div class="col ms-auto">
         <button class="btn btn-success m-3">{{ button_label|default('Save') }}</button>
+
+    </div>
 
     {{ form_end(form) }}
 </div>

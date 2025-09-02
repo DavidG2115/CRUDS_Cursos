@@ -9,10 +9,8 @@ import $ from 'jquery';
 
 
 $(document).ready(function() {
-    // ...otros DataTables...
     console.log("Document is ready!");
 
-    // Guarda la instancia de DataTable en una variable
     const table = $('#employeeTableAPI').DataTable({
         ajax: '/employee/api',
         columns: [
@@ -24,8 +22,8 @@ $(document).ready(function() {
                 data: 'id',
                 render: function(data, type, row) {
                     return `
-                        <a href="/employee/${data}/edit" class="btn btn-sm btn-primary">Edit</a>
-                        <button class="btn btn-sm btn-danger delete-btn" data-id="${data}">Delete</button>
+                        <a href="/employee/${data}/edit" class="btn btn-sm btn-primary ">Edit <i class="bi bi-pencil-square"></i></a>
+                        <button class="btn btn-sm btn-danger delete-btn" data-id="${data}">Delete <i class="bi bi-trash"></i></button>
                     `;
                 }
             }
@@ -37,7 +35,6 @@ $(document).ready(function() {
         pageLength: 3
     });
 
-    // Usa la variable table aquí
     $('#employeeTableAPI').on('click', '.delete-btn', function() {
         const id = $(this).data('id');
         const row = $(this).closest('tr');
@@ -56,6 +53,11 @@ $(document).ready(function() {
             });
         }
     });
+
+//     Table for Courses
+
+
+
 });
 
 
