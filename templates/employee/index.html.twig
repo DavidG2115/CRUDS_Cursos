@@ -3,30 +3,47 @@
 {% block title %}Employee index{% endblock %}
 
 {% block body %}
-    <h1>Employee index</h1>
+
+    <div class="container">
+
+        <div class="row mt-5 mb-3">
+            <div class="col d-flex align-items-center">
+                <h1>Index de empleados</h1>
+                <a href="{{ path('app_employee_new') }}" class="btn btn-primary ms-auto">Create new
+                    <i class="bi bi-plus-circle m-1"></i>
+                </a>
+            </div>
+        </div>
+        <div class="">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{{ path('app_home') }}">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active">Home eployees</li>
+                </ol>
+            </nav>
+        </div>
 
 
-    <a href="{{ path('app_employee_new') }}">Create new</a>
+        <div class="table-responsive">
+            <table id="employeeTableAPI" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Courses</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Los datos se llenarán por DataTables vía AJAX -->
+                </tbody>
+            </table>
+        </div>
 
-    
-
-
-    <div class="table-responsive">
-    <table id="employeeTableAPI" class="table table-striped">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Courses</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Los datos se llenarán por DataTables vía AJAX -->
-        </tbody>
-    </table>
-</div>
+    </div>
     <!-- filepath: templates/employee/index.html.twig -->
 
 {% endblock %}

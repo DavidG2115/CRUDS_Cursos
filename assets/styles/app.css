@@ -3,5 +3,5 @@
 @import '~datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css';
 
 body {
-    background-color: lightgray;
+    background-color: #ffffff !important;
 }

@@ -3,6 +3,7 @@ import 'datatables.net'
 import 'datatables.net-bs5';
 import 'datatables.net-responsive-bs5';
 import 'datatables.net-responsive';
+import 'bootstrap-icons/font/bootstrap-icons.css'
 
 import $ from 'jquery';
 
@@ -68,5 +69,3 @@ $(document).ready(function() {
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
-
-import './employee.js'
