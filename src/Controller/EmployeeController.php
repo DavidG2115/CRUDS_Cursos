@@ -7,6 +7,7 @@ use App\Form\EmployeeType;
 use App\Repository\EmployeeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -20,6 +21,24 @@ final class EmployeeController extends AbstractController
         return $this->render('employee/index.html.twig', [
             'employees' => $employeeRepository->findAll(),
         ]);
+    }
+    
+    #[Route('/api', name: 'api_employees', methods: ['GET'])]
+    public function apiEmployees(EmployeeRepository $employeeRepository): JsonResponse
+    {
+        $employees = $employeeRepository->findAll();
+        $data = [];
+
+        foreach ($employees as $employee) {
+            $data[] = [
+                'id' => $employee->getId(),
+                'name' => $employee->getName(),
+                'email' => $employee->getEmail(),
+                'courses' => implode(', ', array_map(fn($c) => $c->getName(), $employee->getCourses()->toArray())),
+            ];
+        }
+
+        return $this->json(['data' => $data]);
     }
 
     #[Route('/new', name: 'app_employee_new', methods: ['GET', 'POST'])]
@@ -68,14 +87,17 @@ final class EmployeeController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_employee_delete', methods: ['POST'])]
-    public function delete(Request $request, Employee $employee, EntityManagerInterface $entityManager): Response
+    #[Route('/{id}/delete', name: 'app_employee_delete', methods: ['DELETE'])]
+    public function delete(Request $request, Employee $employee, EntityManagerInterface $em): JsonResponse
     {
-        if ($this->isCsrfTokenValid('delete'.$employee->getId(), $request->getPayload()->getString('_token'))) {
-            $entityManager->remove($employee);
-            $entityManager->flush();
-        }
 
-        return $this->redirectToRoute('app_employee_index', [], Response::HTTP_SEE_OTHER);
+        try {
+            $em->remove($employee);
+            $em->flush();
+            return new JsonResponse(['success' => true]);
+        } catch (\Exception $e) {
+            return new JsonResponse(['success' => false], 400);
+        }
     }
+
 }
