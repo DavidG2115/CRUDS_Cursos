@@ -3,9 +3,31 @@
 {% block title %}New Course{% endblock %}
 
 {% block body %}
-    <h1>Create new Course</h1>
 
-    {{ include('course/_form.html.twig') }}
+    <div class="container">
+        <div class="row mt-5 mb-3">
+            <div class="col">
+                <h1>Create new Course</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="{{ path('app_home') }}">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="{{ path('app_course_index') }}">Home Courses</a>
+                        </li>
+                        <li class="breadcrumb-item active">New Course</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
 
-    <a href="{{ path('app_course_index') }}">back to list</a>
+        {{ include('course/_form.html.twig') }}
+
+        <div class="row mt-5">
+            <div class="col align-items-center">
+                <a href="{{ path('app_course_index') }}" class="btn btn-outline-primary"><i class="bi bi-arrow-left"></i> Cancel</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

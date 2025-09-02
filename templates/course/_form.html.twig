@@ -1,4 +1,12 @@
-{{ form_start(form) }}
+
+<div class="container bg-light row">
+
+    {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+    <div class="col d-flex ms-auto flex-row-reverse">
+        <button class="btn btn-success m-3">{{ button_label|default('Save') }}</button>
+
+    </div>
+
+    {{ form_end(form) }}
+</div>

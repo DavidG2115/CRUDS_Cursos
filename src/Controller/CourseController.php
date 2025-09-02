@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Course;
 use App\Form\CourseType;
+use App\Repository\CourseRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -14,15 +16,34 @@ use Symfony\Component\Routing\Attribute\Route;
 final class CourseController extends AbstractController
 {
     #[Route(name: 'app_course_index', methods: ['GET'])]
-    public function index(EntityManagerInterface $entityManager): Response
+    public function index(CourseRepository $courseRepository ): Response
     {
-        $courses = $entityManager
-            ->getRepository(Course::class)
-            ->findAll();
 
         return $this->render('course/index.html.twig', [
-            'courses' => $courses,
+            'courses' => $courseRepository->findAll(),
         ]);
+    }
+
+    #[Route('/api', name: 'api_courses', methods: ['GET'])]
+    public function apiCourses(CourseRepository $courseRepository ): JsonResponse
+    {
+        $courses = $courseRepository->findAll();
+        $data = [];
+
+        foreach ($courses as $course) {
+            $data[] = [
+                'id' => $course->getId(),
+                'name' => $course->getName(),
+                'description' => $course->getDescription(),
+                'duration' => $course->getDuration(),
+                'employees' => $course->getEmployees()->toArray(),
+                'trainers' => $course->getTrainers()->toArray(),
+
+            ];
+        }
+
+        return $this->json(['data' => $data]);
+
     }
 
     #[Route('/new', name: 'app_course_new', methods: ['GET', 'POST'])]
@@ -71,14 +92,17 @@ final class CourseController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_course_delete', methods: ['POST'])]
+    #[Route('/{id}/delete', name: 'app_course_delete', methods: ['DELETE', 'POST'])]
     public function delete(Request $request, Course $course, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$course->getId(), $request->getPayload()->getString('_token'))) {
+        try {
             $entityManager->remove($course);
             $entityManager->flush();
+            return $this->redirectToRoute('app_course_index', [], Response::HTTP_SEE_OTHER);
+
+        } catch (\Exception $e) {
+            return new JsonResponse(['success' => false], 400);
         }
 
-        return $this->redirectToRoute('app_course_index', [], Response::HTTP_SEE_OTHER);
     }
 }

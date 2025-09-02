@@ -4,11 +4,32 @@
 
 {% block body %}
 
-    <h1>Edit Course</h1>
 
-    {{ include('course/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="container">
+        <div class="row mt-5 mb-3">
+            <div class="col">
+                <h1>Edit Course</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="{{ path('app_course_index') }}">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="{{ path('app_course_index') }}">Home Courses</a>
+                        </li>
+                        <li class="breadcrumb-item active">Edit Course</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
 
-    <a href="{{ path('app_course_index') }}">back to list</a>
+        {{ include('course/_form.html.twig', {'button_label': 'Update'}) }}
 
-    {{ include('course/_delete_form.html.twig') }}
+        <div class="row mt-5">
+            <div class="col d-flex align-items-center flex-row-reverse">
+                {{ include('course/_delete_form.html.twig') }}
+
+            </div>
+        </div>
+    </div>
 {% endblock %}

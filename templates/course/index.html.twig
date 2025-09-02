@@ -3,37 +3,46 @@
 {% block title %}Course index{% endblock %}
 
 {% block body %}
-    <h1>Course index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Duration</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for course in courses %}
-            <tr>
-                <td>{{ course.id }}</td>
-                <td>{{ course.name }}</td>
-                <td>{{ course.description }}</td>
-                <td>{{ course.duration }}</td>
-                <td>
-                    <a href="{{ path('app_course_show', {'id': course.id}) }}">show</a>
-                    <a href="{{ path('app_course_edit', {'id': course.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="container">
 
-    <a href="{{ path('app_course_new') }}">Create new</a>
+        <div class="row mt-5 mb-3">
+            <div class="col d-flex align-items-center">
+                <h1>Courses</h1>
+                <a href="{{ path('app_course_new') }}" class="btn btn-primary ms-auto">Create new
+                    <i class="bi bi-plus-circle m-1"></i>
+                </a>
+            </div>
+        </div>
+        <div class="">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{{ path('app_home') }}">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active">Home courses</li>
+                </ol>
+            </nav>
+        </div>
+
+
+        <div class="table-responsive">
+            <table id="coursesTable" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Duration(Hrs)</th>
+                    <th>Employees</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Los datos se llenarán por DataTables vía AJAX -->
+                </tbody>
+            </table>
+        </div>
+
+    </div>
 {% endblock %}

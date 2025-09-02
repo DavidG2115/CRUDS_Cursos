@@ -94,7 +94,7 @@ final class EmployeeController extends AbstractController
         try {
             $em->remove($employee);
             $em->flush();
-            return new JsonResponse(['success' => true]);
+            return $this->redirectToRoute('app_employee_index', [], Response::HTTP_SEE_OTHER);
         } catch (\Exception $e) {
             return new JsonResponse(['success' => false], 400);
         }

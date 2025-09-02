@@ -55,6 +55,52 @@ $(document).ready(function() {
     });
 
 //     Table for Courses
+    const tableCourses = $('#coursesTable').DataTable({
+        ajax: '/course/api',
+        columns: [
+            { data: 'id'},
+            { data: 'name'},
+            { data: 'description'},
+            { data: 'duration'},
+            { data: 'employees'},
+            {
+                data: 'id',
+                render: function(data, type, row) {
+                    return `
+                        <a href="/course/${data}/edit" class="btn btn-sm btn-primary ">Edit <i class="bi bi-pencil-square"></i></a>
+                        <button class="btn btn-sm btn-danger delete-btn" data-id="${data}">Delete <i class="bi bi-trash"></i></button>
+                    `;
+                }
+            }
+
+
+        ],
+        order: [[3, 'asc']],
+        responsive: true,
+        searching: true,
+        ordering: true,
+        pageLength: 3
+
+    });
+
+    $('#coursesTable').on('click', '.delete-btn', function() {
+        const id = $(this).data('id');
+        const row = $(this).closest('tr');
+
+        if (confirm('Are you sure you want to delete this employee?')) {
+            fetch(`/course/${id}/delete`, {
+                method: 'DELETE',
+                headers: { 'X-Requested-With': 'XMLHttpRequest', 'Content-Type': 'application/json' }
+            })
+                .then(response => {
+                    if(response.ok) {
+                        tableCourses.row(row).remove().draw();
+                    } else {
+                        alert('Error deleting employee');
+                    }
+                });
+        }
+    });
 
 
 
