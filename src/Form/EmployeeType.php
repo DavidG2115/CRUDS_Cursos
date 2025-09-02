@@ -17,14 +17,14 @@ class EmployeeType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Nombre',
+                'label' => 'Name',
                 'required' => true,
                 'label_attr' => [
                     'class' => 'form-label mt-3 fw-bold text-dark',
                 ],
                 'attr' => [
                     'class' => 'form-control',
-                    'placeholder' => 'Nombre',
+                    'placeholder' => 'Name',
                 ]
             ])
             ->add('email', EmailType::class, [

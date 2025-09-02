@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Trainer;
 use App\Form\TrainerType;
+use App\Repository\TrainerRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -23,6 +25,25 @@ final class TrainerController extends AbstractController
         return $this->render('trainer/index.html.twig', [
             'trainers' => $trainers,
         ]);
+    }
+
+    #[Route('/api', name: 'api_trainers', methods: ['GET'])]
+    public function apiTrainers( TrainerRepository $repository ): JsonResponse
+    {
+        $trainers = $repository->findAll();
+        $data = [];
+
+        foreach ($trainers as $trainer) {
+            $data[] = [
+                'id' => $trainer->getId(),
+                'name' => $trainer->getName(),
+                'email' => $trainer->getEmail(),
+                'course' => $trainer->getCourses()->toArray(),
+            ];
+        }
+
+        return $this->json(['data' => $data]);
+
     }
 
     #[Route('/new', name: 'app_trainer_new', methods: ['GET', 'POST'])]

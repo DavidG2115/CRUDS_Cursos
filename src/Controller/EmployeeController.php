@@ -87,14 +87,15 @@ final class EmployeeController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/delete', name: 'app_employee_delete', methods: ['DELETE'])]
-    public function delete(Request $request, Employee $employee, EntityManagerInterface $em): JsonResponse
+    #[Route('/{id}/delete', name: 'app_employee_delete', methods: ['DELETE', 'POST'])]
+    public function delete(Request $request, Employee $employee, EntityManagerInterface $em): Response
     {
 
         try {
             $em->remove($employee);
             $em->flush();
             return $this->redirectToRoute('app_employee_index', [], Response::HTTP_SEE_OTHER);
+
         } catch (\Exception $e) {
             return new JsonResponse(['success' => false], 400);
         }

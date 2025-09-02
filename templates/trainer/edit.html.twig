@@ -3,11 +3,33 @@
 {% block title %}Edit Trainer{% endblock %}
 
 {% block body %}
-    <h1>Edit Trainer</h1>
 
-    {{ include('trainer/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="container">
+        <div class="row mt-5 mb-3">
+            <div class="col">
+                <h1>Edit Employee</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="{{ path('app_home') }}">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="{{ path('app_trainer_index') }}">Trainers</a>
+                        </li>
+                        <li class="breadcrumb-item active">Edit employee</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
 
-    <a href="{{ path('app_trainer_index') }}">back to list</a>
+        {{ include('trainer/_form.html.twig', {'button_label': 'Update'}) }}
 
-    {{ include('trainer/_delete_form.html.twig') }}
+        <div class="row mt-5">
+            <div class="col d-flex align-items-center flex-row-reverse">
+                {{ include('trainer/_delete_form.html.twig') }}
+
+            </div>
+
+        </div>
+    </div>
 {% endblock %}
