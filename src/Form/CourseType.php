@@ -52,11 +52,11 @@ class CourseType extends AbstractType
             ])
             ->add('employees', EntityType::class, [
                 'class' => Employee::class,
-                'choice_label' => 'id',
+                'choice_label' => 'name',
                 'label' => 'Employees',
                 'required' => false,
                 'multiple' => true,
-                'expanded' => true,
+                'expanded' => false,
                 'label_attr' => [
                     'class' => 'form-label mt-3 fw-bold text-dark'
                 ],
@@ -66,11 +66,11 @@ class CourseType extends AbstractType
             ])
             ->add('trainers', EntityType::class, [
                 'class' => Trainer::class,
-                'choice_label' => 'id',
+                'choice_label' => 'name',
                 'label' => 'Trainers',
                 'required' => false,
                 'multiple' => true,
-                'expanded' => true,
+                'expanded' => false,
                 'label_attr' => [
                     'class' => 'form-label mt-3 fw-bold text-dark'
                 ],

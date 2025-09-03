@@ -5,7 +5,7 @@
 {% block body %}
 
     <div class="container">
-        <div class="row mt-5 mb-3">
+        <div class="row mt-5">
             <div class="col">
                 <h1>Create new Course</h1>
                 <nav aria-label="breadcrumb">
@@ -22,12 +22,17 @@
             </div>
         </div>
 
-        {{ include('course/_form.html.twig') }}
+        <div class="card shadow">
+            <div class="card-body ">
+                {{ include('course/_form.html.twig') }}
 
-        <div class="row mt-5">
-            <div class="col align-items-center">
-                <a href="{{ path('app_course_index') }}" class="btn btn-outline-primary"><i class="bi bi-arrow-left"></i> Cancel</a>
+                <div class="row">
+                    <div class="col align-items-center">
+                        <a href="{{ path('app_course_index') }}" class="btn btn-outline-primary"><i class="bi bi-arrow-left"></i> Cancel</a>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
 {% endblock %}
