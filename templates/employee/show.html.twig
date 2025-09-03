@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Employee{% endblock %}
+{% block title %}{{ 'employee'|trans }}{% endblock %}
 
 {% block body %}
 
     <div class="container">
         <div class="row mt-5 mb-3">
             <div class="col">
-                <h1>Employee <br> {{ employee.name }}</h1>
+                <h1>{{ 'employee'|trans }} <br> {{ employee.name }}</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">

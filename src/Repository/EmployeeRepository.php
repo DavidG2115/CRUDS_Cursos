@@ -32,7 +32,6 @@ class EmployeeRepository extends ServiceEntityRepository
             return null;
         }
 
-        // Formatear la información para la vista
         $courses = [];
         foreach ($employee->getCourses() as $course) {
             $trainers = [];

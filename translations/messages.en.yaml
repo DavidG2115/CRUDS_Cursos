@@ -20,7 +20,7 @@ back: 'Back to list'
 delete: 'Delete'
 
 show: 'Show'
-employee: 'employee'
+employee: 'Employee'
 edit: 'Edit'
 cancel: 'Cancel'
 update: 'Save'
