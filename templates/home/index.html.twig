@@ -1,40 +1,34 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}CRUDS{% endblock %}
 
 {% block body %}
-
-
-<div class="container mt-5">
-
-    <div class="row">
-        <div class="col">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h5 class="card-title mb-5">Employees</h5>
-{#                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>#}
-                    <a href="{{ path('app_employee_index') }}" class="btn btn-primary">Go somewhere</a>
+    <div class="container vh-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-md-4 mb-3">
+                <div class="card shadow text-center">
+                    <div class="card-body">
+                        <h5 class="card-title mb-5">Employees</h5>
+                        <a href="{{ path('app_employee_index') }}" class="btn btn-primary">Go somewhere</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h5 class="card-title mb-5">Courses</h5>
-{#                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>#}
-                    <a href="{{ path('app_course_index') }}" class="btn btn-primary">Go somewhere</a>
+            <div class="col-md-4 mb-3">
+                <div class="card shadow text-center">
+                    <div class="card-body">
+                        <h5 class="card-title mb-5">Courses</h5>
+                        <a href="{{ path('app_course_index') }}" class="btn btn-primary">Go somewhere</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h5 class="card-title mb-5">Trainers</h5>
-{#                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>#}
-                    <a href="{{ path('app_trainer_index') }}" class="btn btn-primary">Go somewhere</a>
+            <div class="col-md-4 mb-3">
+                <div class="card shadow text-center">
+                    <div class="card-body">
+                        <h5 class="card-title mb-5">Trainers</h5>
+                        <a href="{{ path('app_trainer_index') }}" class="btn btn-primary">Go somewhere</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 {% endblock %}

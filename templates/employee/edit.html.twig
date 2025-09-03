@@ -24,14 +24,16 @@
             </div>
         </div>
 
-        {{ include('employee/_form.html.twig', {'button_label': 'Update'}) }}
-
-        <div class="row mt-5">
-            <div class="col d-flex align-items-center flex-row-reverse">
-                {{ include('employee/_delete_form.html.twig') }}
-
+        <div class="card shadow-sm">
+            <div class="card-body">
+                {{ include('employee/_form.html.twig', {'button_label': 'Update'}) }}
+                <div class="row mt-5">
+                    <div class="col d-flex align-items-center flex-row-reverse">
+                        {{ include('employee/_delete_form.html.twig') }}
+                    </div>
+                </div>
             </div>
-
         </div>
+
     </div>
 {% endblock %}

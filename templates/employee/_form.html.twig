@@ -1,12 +1,6 @@
-
-<div class="container bg-light row">
-
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
+{{ form_start(form) }}
+    {{ form_widget(form) }}
     <div class="col ms-auto">
-        <button class="btn btn-success m-3">{{ button_label|default('Save') }}</button>
-
+        <button class="btn btn-success mt-4">{{ button_label|default('Save') }}</button>
     </div>
-
-    {{ form_end(form) }}
-</div>
+{{ form_end(form) }}
