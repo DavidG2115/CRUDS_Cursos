@@ -16,6 +16,40 @@ class EmployeeRepository extends ServiceEntityRepository
         parent::__construct($registry, Employee::class);
     }
 
+
+    public function findEmployeeWithCoursesAndTrainers(int $employeeId): ?array
+    {
+        $qb = $this->createQueryBuilder('e')
+            ->select('e', 'c', 't')
+            ->leftJoin('e.courses', 'c')
+            ->leftJoin('c.trainers', 't')
+            ->where('e.id = :id')
+            ->setParameter('id', $employeeId);
+
+        $employee = $qb->getQuery()->getOneOrNullResult();
+
+        if (!$employee) {
+            return null;
+        }
+
+        // Formatear la información para la vista
+        $courses = [];
+        foreach ($employee->getCourses() as $course) {
+            $trainers = [];
+            foreach ($course->getTrainers() as $trainer) {
+                $trainers[] = $trainer->getName();
+            }
+            $courses[] = [
+                'name' => $course->getName(),
+                'trainers' => implode(', ', $trainers),
+            ];
+        }
+
+        return [
+            'employee' => $employee,
+            'courses' => $courses,
+        ];
+    }
 //    /**
 //     * @return Employee[] Returns an array of Employee objects
 //     */

@@ -31,13 +31,23 @@ final class CourseController extends AbstractController
         $data = [];
 
         foreach ($courses as $course) {
+            $employeeNames = [];
+            foreach ($course->getEmployees() as $employee) {
+                $employeeNames[] = $employee->getName();
+            }
+
+            // Obtener nombres de trainers (si aplica)
+            $trainerNames = [];
+            foreach ($course->getTrainers() as $trainer) {
+                $trainerNames[] = $trainer->getName();
+            }
             $data[] = [
                 'id' => $course->getId(),
                 'name' => $course->getName(),
                 'description' => $course->getDescription(),
                 'duration' => $course->getDuration(),
-                'employees' => $course->getEmployees()->toArray(),
-                'trainers' => $course->getTrainers()->toArray(),
+                'employees' => implode(', ', $employeeNames),
+                'trainers' => implode(', ', $trainerNames),
 
             ];
         }

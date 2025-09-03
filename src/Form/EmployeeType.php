@@ -42,13 +42,12 @@ class EmployeeType extends AbstractType
             ->add('courses', EntityType::class, [
                 'class' => Course::class,
                 'required' => false,
-                'choice_label' => 'id',
+                'choice_label' => 'name',
                 'multiple' => true,
-                'label_attr' => [
-                    'class' => 'form-select form-select-lg mt-3 fw-bold text-dark',
-                ],
+                'expanded' => false,
+                'label' => 'Courses',
                 'attr' => [
-                    'class' => 'form-control',
+                    'class' => 'form-select',
                 ]
             ])
         ;
