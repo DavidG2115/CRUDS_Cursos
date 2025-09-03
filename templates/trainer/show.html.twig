@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row mt-5 mb-3">
             <div class="col">
-                <h1>Employee: {{ trainer.name }}</h1>
+                <h1>Trainer: {{ trainer.name }}</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
@@ -16,7 +16,7 @@
                         <li class="breadcrumb-item">
                             <a href="{{ path('app_trainer_index') }}">Trainers</a>
                         </li>
-                        <li class="breadcrumb-item active">Show Course</li>
+                        <li class="breadcrumb-item active">Show Trainer</li>
                     </ol>
                 </nav>
             </div>
@@ -64,7 +64,7 @@
                         </table>
                     </div>
                 {% else %}
-                    <p class="text-muted">Este instructor no tiene cursos asignados.</p>
+                    <p class="text-muted">This instructor has no courses assigned.</p>
                 {% endif %}
                 <a href="{{ path('app_trainer_edit', {'id': trainer .id}) }}" class="btn btn btn-primary">Edit <i class="bi bi-pencil-square"></i></a>
 

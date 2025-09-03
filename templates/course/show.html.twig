@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row mt-5 mb-3">
             <div class="col">
-                <h1>Employee <br> {{ course.name }}</h1>
+                <h1>Course: {{ course.name }}</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
@@ -24,7 +24,7 @@
 
         <div class="card shadow">
             <div class="card-body mb-3">
-                <table class="table">
+                <table class="table table-bordered">
                     <tbody>
                     <tr>
                         <th>Id</th>
@@ -44,10 +44,61 @@
                     </tr>
                     </tbody>
                 </table>
+
+                <h3 class="pt-2">Employees</h3>
+                {% if course.employees|length > 0 %}
+                    <div class="table-responsive mb-3">
+                        <table class="table table-striped align-middle">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for employee in course.employees %}
+                                <tr>
+                                    <td>{{ employee.name }}</td>
+                                    <td>{{ employee.email }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <p class="text-muted">This course has no employees assigned.</p>
+                {% endif %}
+
+                <h3 class="pt-2">Trainers</h3>
+                {% if course.trainers|length > 0 %}
+                    <div class="table-responsive mb-3">
+                        <table class="table table-striped align-middle">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for trainer in course.trainers %}
+                                <tr>
+                                    <td>{{ trainer.name }}</td>
+                                    <td>{{ trainer.email }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <p class="text-muted">This course has no trainers assigned.</p>
+                {% endif %}
+
                 <a href="{{ path('app_course_edit', {'id': course.id}) }}" class="btn btn btn-primary">Edit <i class="bi bi-pencil-square"></i></a>
 
             </div>
         </div>
+
+
 
         <div class="d-flex justify-content-between align-items-center mt-3">
             <a href="{{ path('app_course_index') }}" class="btn btn-outline-primary">

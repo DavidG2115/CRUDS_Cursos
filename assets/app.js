@@ -66,6 +66,7 @@ $(document).ready(function() {
             { data: 'description'},
             { data: 'duration'},
             { data: 'employees'},
+            { data: 'trainers'},
             {
                 data: 'id',
                 render: function(data, type, row) {

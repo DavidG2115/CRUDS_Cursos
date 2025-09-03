@@ -45,7 +45,7 @@
         </div>
 
         <div class="p-3">
-            <h3 class="align-items-center">Cursos inscritos</h3>
+            <h3 class="align-items-center">Courses</h3>
         </div>
         <div class="card shadow mb-4">
             <div class="card-body">
@@ -54,8 +54,8 @@
                         <table class="table table-striped align-middle">
                             <thead>
                             <tr>
-                                <th>Curso</th>
-                                <th>Instructor</th>
+                                <th>Course</th>
+                                <th>Trainer</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -66,7 +66,7 @@
                                         {% if course.trainers is defined %}
                                             {{ course.trainers }}
                                         {% else %}
-                                            <span class="text-muted">Sin instructor</span>
+                                            <span class="text-muted">Not instructor</span>
                                         {% endif %}
                                     </td>
                                 </tr>
@@ -75,7 +75,7 @@
                         </table>
                     </div>
                 {% else %}
-                    <p class="text-muted mb-0">No está inscrito en ningún curso.</p>
+                    <p class="text-muted mb-0">Not enrolled in any course.</p>
                 {% endif %}
             </div>
         </div>
