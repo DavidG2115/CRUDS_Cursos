@@ -1,22 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Employee{% endblock %}
+{% block title %}{{ 'new.employee'|trans }}{% endblock %}
 
 {% block body %}
 
     <div class="container">
         <div class="row mt-5 mb-3">
             <div class="col">
-                <h1>Create new Employees</h1>
+                <h1>{{ 'create.employee'|trans }}</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="{{ path('app_employee_index') }}">Home</a>
+                            <a href="{{ path('app_employee_index') }}">{{ 'index.home'|trans }}</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="{{ path('app_employee_index') }}">Employees</a>
+                            <a href="{{ path('app_employee_index') }}">{{ 'homepage.employees'|trans }}</a>
                         </li>
-                        <li class="breadcrumb-item active">New employee</li>
+                        <li class="breadcrumb-item active">{{ 'new.employee'|trans }}</li>
                     </ol>
                 </nav>
             </div>
@@ -28,7 +28,7 @@
 
                 <div class="row mt-5">
                     <div class="col align-items-center">
-                        <a href="{{ path('app_employee_index') }}" class="btn btn-outline-primary"><i class="bi bi-arrow-left"></i> Cancel</a>
+                        <a href="{{ path('app_employee_index') }}" class="btn btn-outline-primary"><i class="bi bi-arrow-left"></i> {{ 'cancel'|trans }}</a>
                     </div>
                 </div>
             </div>

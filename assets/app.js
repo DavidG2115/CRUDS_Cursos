@@ -22,9 +22,9 @@ $(document).ready(function() {
                 data: 'id',
                 render: function(data, type, row) {
                     return `
-                        <a href="/employee/${data}" class="btn btn-sm btn-info">Show <i class="bi bi-eye"></i></a>
-                        <a href="/employee/${data}/edit" class="btn btn-sm btn-primary ">Edit <i class="bi bi-pencil-square"></i></a>
-                        <button class="btn btn-sm btn-danger delete-btn" data-id="${data}">Delete <i class="bi bi-trash"></i></button>
+                        <a href="/employee/${data}" class="btn btn-sm btn-info"><i class="bi bi-eye"></i></a>
+                        <a href="/employee/${data}/edit" class="btn btn-sm btn-primary "><i class="bi bi-pencil-square"></i></a>
+                        <button class="btn btn-sm btn-danger delete-btn" data-id="${data}"><i class="bi bi-trash"></i></button>
                     `;
                 }
             }

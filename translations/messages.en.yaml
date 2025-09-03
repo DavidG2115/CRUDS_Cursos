@@ -1,0 +1,26 @@
+
+homepage.employees: 'Employees'
+homepage.courses: 'Courses'
+homepage.trainers: 'Trainers'
+
+index.home: 'Home'
+index.create: 'Create new'
+
+datatable.name: 'Name'
+datatable.Email: 'Email'
+datatable.Courses: 'Courses'
+datatable.Actions: 'Actions'
+datatable.trainer: 'Trainer'
+
+no.course: 'Not enrolled in any course.'
+create.employee: 'Create new employee'
+new.employee: 'New employee'
+
+back: 'Back to list'
+delete: 'Delete'
+
+show: 'Show'
+employee: 'employee'
+edit: 'Edit'
+cancel: 'Cancel'
+update: 'Save'

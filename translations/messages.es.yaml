@@ -1,0 +1,26 @@
+
+homepage.employees: 'Empleados'
+homepage.courses: 'Cursos'
+homepage.trainers: 'Entrenadores'
+
+index.home: 'Inicio'
+index.create: 'Crear nuevo'
+
+datatable.name: 'Nombre'
+datatable.Email: 'Correo electronico'
+datatable.Courses: 'Cursos'
+datatable.Actions: 'Acciones'
+datatable.trainer: 'Instructor'
+
+no.course: 'No esta inscrito en ningun curso.'
+create.employee: 'Crear nuevo empleado'
+new.employee: 'Nuevo empleado'
+
+back: 'Regresar'
+delete: 'Eliminar'
+
+show: 'Ver'
+employee: 'empleado'
+edit: 'Editar'
+cancel: 'Cancelar'
+update: 'Guardar'
