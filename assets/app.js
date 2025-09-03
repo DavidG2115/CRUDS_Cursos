@@ -29,7 +29,9 @@ $(document).ready(function() {
                 }
             }
         ],
-        order: [[3, 'asc']],
+        columnDefs: [
+            { orderable: false, targets: [4] }
+        ],
         responsive: true,
         searching: true,
         ordering: true,
@@ -77,7 +79,10 @@ $(document).ready(function() {
 
 
         ],
-        order: [[3, 'asc']],
+        // order: [[0, 'asc']],
+        columnDefs: [
+            { orderable: false, targets: [5] }
+        ],
         responsive: true,
         searching: true,
         ordering: true,
