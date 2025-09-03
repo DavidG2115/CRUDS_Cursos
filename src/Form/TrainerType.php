@@ -40,16 +40,16 @@ class TrainerType extends AbstractType
             ])
             ->add('courses', EntityType::class, [
                 'class' => Course::class,
-                'choice_label' => 'id',
+                'choice_label' => 'name',
                 'required' => false,
                 'multiple' => true,
-                'expanded' => false,
                 'label_attr' => [
-                    'class' => 'form-select mt-3 fw-bold text-dark'
+                    'class' => 'form-label mt-3 fw-bold text-dark'
                 ],
                 'attr' => [
-                    'class' => 'select2 form-control',
+                    'class' => 'form-select ',
                 ]
+
             ])
         ;
     }

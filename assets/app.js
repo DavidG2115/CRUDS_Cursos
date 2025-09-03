@@ -104,6 +104,56 @@ $(document).ready(function() {
         }
     });
 
+    const tableTrainers = $('#trainersTable').DataTable({
+        ajax: '/trainer/api',
+        columns: [
+            { data: 'id'},
+            { data: 'name'},
+            { data: 'email'},
+            { data: 'course'},
+            {
+                data: 'id',
+                render: function(data, type, row) {
+                    return `
+                        <a href="/trainer/${data}" class="btn btn-sm btn-info">Show <i class="bi bi-eye"></i></a>
+                        <a href="/trainer/${data}/edit" class="btn btn-sm btn-primary ">Edit <i class="bi bi-pencil-square"></i></a>
+                        <button class="btn btn-sm btn-danger delete-btn" data-id="${data}">Delete <i class="bi bi-trash"></i></button>
+                    `;
+                }
+            }
+
+
+        ],
+        order: [[0, 'asc']],
+        columnDefs: [
+            { orderable: false, targets: [4] }
+        ],
+        responsive: true,
+        searching: true,
+        ordering: true,
+        pageLength: 3
+
+    });
+
+    $('#trainersTable').on('click', '.delete-btn', function() {
+        const id = $(this).data('id');
+        const row = $(this).closest('tr');
+
+        if (confirm('Are you sure you want to delete this employee?')) {
+            fetch(`/trainer/${id}/delete`, {
+                method: 'DELETE',
+                headers: { 'X-Requested-With': 'XMLHttpRequest', 'Content-Type': 'application/json' }
+            })
+                .then(response => {
+                    if(response.ok) {
+                        tableTrainers.row(row).remove().draw();
+                    } else {
+                        alert('Error deleting trainer');
+                    }
+                });
+        }
+    });
+
 
 
 });

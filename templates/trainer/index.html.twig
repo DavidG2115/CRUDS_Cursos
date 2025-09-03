@@ -4,35 +4,47 @@
 
 {% block body %}
 
-    <h1>Trainer index</h1>
+    <div class="container">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for trainer in trainers %}
-            <tr>
-                <td>{{ trainer.id }}</td>
-                <td>{{ trainer.name }}</td>
-                <td>{{ trainer.email }}</td>
-                <td>
-                    <a href="{{ path('app_trainer_show', {'id': trainer.id}) }}">show</a>
-                    <a href="{{ path('app_trainer_edit', {'id': trainer.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <div class="row mt-5 mb-3">
+            <div class="col d-flex align-items-center">
+                <h1>Trainer</h1>
+                <a href="{{ path('app_trainer_new') }}" class="btn btn-primary ms-auto">Create new
+                    <i class="bi bi-plus-circle m-1"></i>
+                </a>
+            </div>
+        </div>
+        <div class="">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{{ path('app_home') }}">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active">Trainers</li>
+                </ol>
+            </nav>
+        </div>
 
-    <a href="{{ path('app_trainer_new') }}">Create new</a>
+
+        <div class="card shadow">
+            <div class="table-responsive card-body">
+                <table id="trainersTable" class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Courses</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- Los datos se llenarán por DataTables vía AJAX -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+    </div>
 {% endblock %}

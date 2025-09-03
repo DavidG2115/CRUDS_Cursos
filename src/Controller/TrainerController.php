@@ -34,11 +34,16 @@ final class TrainerController extends AbstractController
         $data = [];
 
         foreach ($trainers as $trainer) {
+            $coursesName= [];
+            foreach ($trainer->getCourses() as $course) {
+                $coursesName[] = $course->getName();
+            }
+
             $data[] = [
                 'id' => $trainer->getId(),
                 'name' => $trainer->getName(),
                 'email' => $trainer->getEmail(),
-                'course' => $trainer->getCourses()->toArray(),
+                'course' => (implode(", ", $coursesName)),
             ];
         }
 
@@ -92,14 +97,16 @@ final class TrainerController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_trainer_delete', methods: ['POST'])]
+    #[Route('/{id}/delete', name: 'app_trainer_delete', methods: ['POST', 'DELETE'])]
     public function delete(Request $request, Trainer $trainer, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$trainer->getId(), $request->getPayload()->getString('_token'))) {
+        try {
             $entityManager->remove($trainer);
             $entityManager->flush();
-        }
+            return $this->redirectToRoute('app_trainer_index', [], Response::HTTP_SEE_OTHER);
 
-        return $this->redirectToRoute('app_trainer_index', [], Response::HTTP_SEE_OTHER);
+        } catch (\Exception $e) {
+            return new JsonResponse(['success' => false], 400);
+        }
     }
 }
