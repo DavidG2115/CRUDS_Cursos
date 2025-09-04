@@ -1,4 +1,5 @@
 import './bootstrap.js';
+import 'bootstrap'
 import 'datatables.net'
 import 'datatables.net-bs5';
 import 'datatables.net-responsive-bs5';
@@ -35,7 +36,7 @@ $(document).ready(function() {
         responsive: true,
         searching: true,
         ordering: true,
-        pageLength: 3
+        pageLength: 5
     });
 
     $('#employeeTableAPI').on('click', '.delete-btn', function() {
@@ -87,7 +88,7 @@ $(document).ready(function() {
         responsive: true,
         searching: true,
         ordering: true,
-        pageLength: 3
+        pageLength: 5
 
     });
 
@@ -137,7 +138,7 @@ $(document).ready(function() {
         responsive: true,
         searching: true,
         ordering: true,
-        pageLength: 3
+        pageLength: 5
 
     });
 

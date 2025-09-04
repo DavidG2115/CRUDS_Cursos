@@ -16,10 +16,13 @@ datatable.trainer: 'Trainer'
 
 no.course: 'Not enrolled in any course.'
 no.trainer: 'This course has no trainers assigned.'
+no.course.trainer: 'This instructor has no courses assigned.'
 create.employee: 'Create new employee'
 create.course: 'Create new course'
+create.trainer: 'Create new trainer'
 new.employee: 'New Employee'
 new.course: 'New Course'
+new.trainer: 'New Trainer'
 
 back: 'Back to list'
 delete: 'Delete'

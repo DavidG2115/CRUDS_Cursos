@@ -17,18 +17,18 @@ class TrainerType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Name',
+                'label' => 'datatable.name',
                 'required' => true,
                 'label_attr' => [
                     'class' => 'form-label mt-3 fw-bold text-dark'
                 ],
                 'attr' => [
                     'class' => 'form-control',
-                    'placeholder' => 'Name',
+                    'placeholder' => 'datatable.name',
                 ]
             ])
             ->add('email', EmailType::class, [
-                'label' => 'Email',
+                'label' => 'datatable.Email',
                 'required' => true,
                 'label_attr' => [
                     'class' => 'form-label mt-3 fw-bold text-dark'
@@ -43,6 +43,7 @@ class TrainerType extends AbstractType
                 'choice_label' => 'name',
                 'required' => false,
                 'multiple' => true,
+                'label' => 'datatable.Courses',
                 'label_attr' => [
                     'class' => 'form-label mt-3 fw-bold text-dark'
                 ],
