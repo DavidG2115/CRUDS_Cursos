@@ -1,23 +1,30 @@
 
 homepage.employees: 'Empleados'
 homepage.courses: 'Cursos'
-homepage.trainers: 'Entrenadores'
+homepage.trainers: 'Instructor'
 
 index.home: 'Inicio'
 index.create: 'Crear nuevo'
 
 datatable.name: 'Nombre'
 datatable.Email: 'Correo electronico'
+datatable.Description: 'Descripcion'
+datatable.Duration: 'Duracion (Horas)'
 datatable.Courses: 'Cursos'
 datatable.Actions: 'Acciones'
 datatable.trainer: 'Instructor'
 
 no.course: 'No esta inscrito en ningun curso.'
+no.trainer: 'Este curso no tiene instructor asignado'
 create.employee: 'Crear nuevo empleado'
+create.course: 'Crear nuevo curso'
 new.employee: 'Nuevo empleado'
+new.course: 'Nuevo curso'
 
 back: 'Regresar'
 delete: 'Eliminar'
+
+course: 'curso'
 
 show: 'Ver'
 employee: 'Empleado'

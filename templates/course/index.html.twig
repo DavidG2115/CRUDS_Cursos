@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Course index{% endblock %}
+{% block title %} {{ 'homepage.courses'|trans }} {% endblock %}
 
 {% block body %}
 
@@ -8,8 +8,8 @@
 
         <div class="row mt-5 mb-3">
             <div class="col d-flex align-items-center">
-                <h1>Courses</h1>
-                <a href="{{ path('app_course_new') }}" class="btn btn-primary ms-auto">Create new
+                <h1>{{ 'homepage.courses'|trans }}</h1>
+                <a href="{{ path('app_course_new') }}" class="btn btn-primary ms-auto">{{ 'create.course'|trans }}
                     <i class="bi bi-plus-circle m-1"></i>
                 </a>
             </div>
@@ -18,9 +18,9 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="{{ path('app_home') }}">Home</a>
+                        <a href="{{ path('app_home') }}">{{ 'index.home'|trans }}</a>
                     </li>
-                    <li class="breadcrumb-item active">Home courses</li>
+                    <li class="breadcrumb-item active">{{ 'index.home'|trans }} {{ 'datatable.Courses'|trans }}</li>
                 </ol>
             </nav>
         </div>
@@ -32,12 +32,12 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Duration(Hrs)</th>
-                        <th>Employees</th>
-                        <th>Trainers</th>
-                        <th>Actions</th>
+                        <th>{{ 'datatable.name'|trans }}</th>
+                        <th>{{ 'datatable.Description'|trans }}</th>
+                        <th>{{ 'datatable.Duration'|trans }}</th>
+                        <th>{{ 'homepage.employees'|trans }}</th>
+                        <th>{{ 'homepage.trainers'|trans }}</th>
+                        <th>{{ 'datatable.Actions'|trans }}</th>
                     </tr>
                     </thead>
                     <tbody>

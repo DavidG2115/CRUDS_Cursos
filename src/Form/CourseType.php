@@ -18,42 +18,42 @@ class CourseType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Name',
+                'label' => 'datatable.name',
                 'required' => true,
                 'label_attr' => [
                     'class' => 'form-label mt-3 fw-bold text-dark'
                 ],
                 'attr' => [
                     'class' => 'form-control',
-                    'placeholder' => 'Name',
+                    'placeholder' => 'datatable.name',
                 ]
             ])
             ->add('description', TextType::class, [
-                'label' => 'Description',
+                'label' => 'datatable.Description',
                 'required' => true,
                 'label_attr' => [
                     'class' => 'form-label mt-3 fw-bold text-dark'
                 ],
                 'attr' => [
                     'class' => 'form-control',
-                    'placeholder' => 'Description',
+                    'placeholder' => 'datatable.Description',
                 ]
             ])
             ->add('duration', IntegerType::class, [
-                'label' => 'Duration',
+                'label' => 'datatable.Duration',
                 'required' => true,
                 'label_attr' => [
                     'class' => 'form-label mt-3 fw-bold text-dark'
                 ],
                 'attr' => [
                     'class' => 'form-control',
-                    'placeholder' => 'Duration in Hours',
+                    'placeholder' => 'datatable.Duration',
                 ]
             ])
             ->add('employees', EntityType::class, [
                 'class' => Employee::class,
                 'choice_label' => 'name',
-                'label' => 'Employees',
+                'label' => 'homepage.employees',
                 'required' => false,
                 'multiple' => true,
                 'expanded' => false,
@@ -67,7 +67,7 @@ class CourseType extends AbstractType
             ->add('trainers', EntityType::class, [
                 'class' => Trainer::class,
                 'choice_label' => 'name',
-                'label' => 'Trainers',
+                'label' => 'homepage.trainers',
                 'required' => false,
                 'multiple' => true,
                 'expanded' => false,

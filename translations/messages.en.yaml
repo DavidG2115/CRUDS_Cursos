@@ -9,15 +9,22 @@ index.create: 'Create new'
 datatable.name: 'Name'
 datatable.Email: 'Email'
 datatable.Courses: 'Courses'
+datatable.Description: 'Description'
+datatable.Duration: 'Duration (Hours)'
 datatable.Actions: 'Actions'
 datatable.trainer: 'Trainer'
 
 no.course: 'Not enrolled in any course.'
+no.trainer: 'This course has no trainers assigned.'
 create.employee: 'Create new employee'
-new.employee: 'New employee'
+create.course: 'Create new course'
+new.employee: 'New Employee'
+new.course: 'New Course'
 
 back: 'Back to list'
 delete: 'Delete'
+
+course: 'course'
 
 show: 'Show'
 employee: 'Employee'

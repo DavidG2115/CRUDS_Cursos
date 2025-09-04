@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Course{% endblock %}
+{% block title %}{{ 'edit'|trans }} {{ 'course'|trans }}{% endblock %}
 
 {% block body %}
 
@@ -8,16 +8,16 @@
     <div class="container">
         <div class="row mt-5 mb-3">
             <div class="col">
-                <h1>Edit Course</h1>
+                <h1>{{ 'edit'|trans }} {{ 'course'|trans }}</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="{{ path('app_home') }}">Home</a>
+                            <a href="{{ path('app_home') }}">{{ 'index.home'|trans }}</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="{{ path('app_course_index') }}">Home Courses</a>
+                            <a href="{{ path('app_course_index') }}">{{ 'index.home'|trans }} {{ 'datatable.Courses'|trans }}</a>
                         </li>
-                        <li class="breadcrumb-item active">Edit Course</li>
+                        <li class="breadcrumb-item active">{{ 'edit'|trans }} {{ 'course'|trans }}</li>
                     </ol>
                 </nav>
             </div>
@@ -30,7 +30,7 @@
         </div>
 
         <div class="d-flex justify-content-between align-items-center mt-5">
-            <a href="{{ path('app_course_index') }}" class="btn btn-outline-primary"><i class="bi bi-arrow-left"></i> Cancel</a>
+            <a href="{{ path('app_course_index') }}" class="btn btn-outline-primary"><i class="bi bi-arrow-left"></i> {{ 'edit'|trans }} {{ 'cancel'|trans }}</a>
             {{ include('course/_delete_form.html.twig') }}
         </div>
     </div>
