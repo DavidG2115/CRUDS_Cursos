@@ -31,7 +31,8 @@ $(document).ready(function() {
             }
         ],
         columnDefs: [
-            { orderable: false, targets: [4] }
+            { orderable: false, targets: [4] },
+            { width: '5%', targets: 0 }
         ],
         responsive: true,
         searching: true,
@@ -83,7 +84,10 @@ $(document).ready(function() {
         ],
         // order: [[0, 'asc']],
         columnDefs: [
-            { orderable: false, targets: [6] }
+            { orderable: false, targets: [6] },
+            { width: '30%', targets: 2 },
+            { width: '5%', targets: 3 }
+            
         ],
         responsive: true,
         searching: true,
@@ -133,7 +137,8 @@ $(document).ready(function() {
         ],
         order: [[0, 'asc']],
         columnDefs: [
-            { orderable: false, targets: [4] }
+            { orderable: false, targets: [4] },
+            { width: '5%', targets: 0 }
         ],
         responsive: true,
         searching: true,
