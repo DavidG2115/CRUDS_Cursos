@@ -15,7 +15,9 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/employee')]
 final class EmployeeController extends AbstractController
 {
-    #[Route(name: 'app_employee_index', methods: ['GET'])]
+    // #[Route(name: 'app_employee_index', methods: ['GET'])]
+    #[Route('/{_locale}', name: 'app_employee_index', requirements: ['_locale' => 'en|es'], defaults: ['_locale' => 'en'])]
+
     public function index(EmployeeRepository $employeeRepository): Response
     {
         return $this->render('employee/index.html.twig', [
@@ -41,7 +43,8 @@ final class EmployeeController extends AbstractController
         return $this->json(['data' => $data]);
     }
 
-    #[Route('/new', name: 'app_employee_new', methods: ['GET', 'POST'])]
+    // #[Route('/new', name: 'app_employee_new', methods: ['GET', 'POST'])]
+    #[Route('/new/{_locale}', name: 'app_employee_new', requirements: ['_locale' => 'en|es'], defaults: ['_locale' => 'en'], methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $employee = new Employee();
@@ -61,7 +64,8 @@ final class EmployeeController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_employee_show', methods: ['GET'])]
+    // #[Route('/{id}', name: 'app_employee_show', methods: ['GET'])]
+    #[Route('/{id}/{_locale}', name: 'app_employee_show', requirements: ['_locale' => 'en|es'], defaults: ['_locale' => 'en'], methods: ['GET'])]
     public function show(int $id, EmployeeRepository $employeeRepository): Response
 {
     $data = $employeeRepository->findEmployeeWithCoursesAndTrainers($id);
@@ -76,7 +80,8 @@ final class EmployeeController extends AbstractController
     ]);
 }
 
-    #[Route('/{id}/edit', name: 'app_employee_edit', methods: ['GET', 'POST'])]
+    // #[Route('/{id}/edit', name: 'app_employee_edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/edit/{_locale}', name: 'app_employee_edit', requirements: ['_locale' => 'en|es'], defaults: ['_locale' => 'en'], methods: ['GET', 'POST'])]
     public function edit(Request $request, Employee $employee, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(EmployeeType::class, $employee);
